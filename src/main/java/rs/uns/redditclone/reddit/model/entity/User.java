@@ -1,8 +1,11 @@
 package rs.uns.redditclone.reddit.model.entity;
 
+import lombok.Builder;
 import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -33,5 +36,9 @@ public class User {
     private String displayName;
     @Column(name ="registrationDate", nullable = false)
     private LocalDate registrastionDate;
+    //to do
+    @Column(name ="role", nullable = false)
+    @Value("${some.key:0}")
+    private Long role;
 
 }
